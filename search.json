@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "notebooks/docker.html",
+    "href": "notebooks/docker.html",
+    "title": "Data Engineering Zoomcamp",
+    "section": "",
+    "text": "Docker is a tool used to automate the deployment of software using lightweight packages called containers. Containers are similar to virtual machines: they are isolated from one another and bundle their own software, libraries, and configuration files, but they are more portable and resource friendly.\nThey are used in data engineering to deploy data pipelines. A data pipeline is a process that intakes data and does something with the data (processing, cleaning, transforming) and then outputs the data. A pipeline can include many different steps.\n\n\n\n\n\n\nflowchart LR\n    A(\"CSV <br>(source)\") ==> B[Data Pipeline]\n    B[Data Pipeline] ==> C[(\"Postgres table<br>(dest)\")]\n\n    style A fill:#f8f8f2,stroke:darkgray,stroke-width:2px\n    style B fill:#f8f8f2,stroke:darkgray,stroke-width:2px\n    style C fill:#f8f8f2,stroke:darkgray,stroke-width:2px\n\n\n\n\n\n\n\n\n\n\nAdvantages of Docker:\n\nPipelines and analyses are reproducible.\nSetting up local experiments.\nSetting up integration tests (CI/CD)\nEasily run in different cloud services."
+  },
+  {
+    "objectID": "notebooks/docker.html#providers",
+    "href": "notebooks/docker.html#providers",
+    "title": "Data Engineering Zoomcamp",
+    "section": "Providers",
+    "text": "Providers\nTerraform works with plugins called providers for each data source. These add a set of predefined resources and data types that Terraform can manage. The Terraform Registry is the main directory of publicly available providers for most major cloud infrastructure platforms. These are declared with the provider tag:\nprovider \"google\" {\n    project = var.project\n    region = var.region\n    // credentails = file(var.credentials) # instead of setting env variables.\n}"
+  },
+  {
+    "objectID": "notebooks/docker.html#variables",
+    "href": "notebooks/docker.html#variables",
+    "title": "Data Engineering Zoomcamp",
+    "section": "Variables",
+    "text": "Variables\nNotice certain variables in main.tf are preceded with var.. These values come from the variables.tf file. We begin the variables.tf file with declaring local variables:\nlocals {\n    data_lake_bucket = \"dtc_data_lake\"\n}\nVariables are generally passed during runtime. Default variables are optional runtime arguments, defined variables are mandatory runtime arguments.\n# this variable is mandatory and it's value will be entered at runtime\nvariable \"project\" {\n    description = \"GCP Project ID\" \n}\n\n# this variable is optional as it has a default \"us-west1\"\nvariable \"region\" {\n    description = \"Region for GCP resources.\"\n    default = \"us-west1\"\n    type = string\n}"
+  },
+  {
+    "objectID": "notebooks/docker.html#execution",
+    "href": "notebooks/docker.html#execution",
+    "title": "Data Engineering Zoomcamp",
+    "section": "Execution",
+    "text": "Execution\n\nterraform init: Initialize and install.\nterraform plan: Describes the actions that Terraform will take to match changes against the previous state.\nterraform apply: Apply changes to the cloud: create or update new resources, increase memory, etc.\nterraform destroy: Remove your stack and resources from the cloud (used to save on idle resources)."
+  }
+]
