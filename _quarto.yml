@@ -1,0 +1,31 @@
+project:
+  type: website
+
+website:
+  title: "Data Engineering Zoomcamp"
+
+  search:
+    location: sidebar
+    type: overlay
+    limit: 10
+
+  sidebar:
+    style: "floating"
+    search: true
+    contents: 
+      - section: Course Sections
+        contents: notebooks/*
+
+  page-footer:
+    left: "Created with [Quarto](https://quarto.org/)."
+
+format:
+  html:
+    theme: default
+    toc: true
+    toc-location: right
+    toc-title: Contents
+    code-copy: true
+    code-overflow: wrap
+    code-block-background: true
+    highlight-style: arrow
