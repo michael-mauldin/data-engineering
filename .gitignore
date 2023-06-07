@@ -1,0 +1,8 @@
+/_site/
+/.quarto/
+/venv/
+/data/
+/google-cloud-sdk/
+*.gz
+.ipynb_checkpoints
+/docs/
