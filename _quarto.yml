@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Data Engineering Zoomcamp"
@@ -13,7 +14,7 @@ website:
     style: "floating"
     search: true
     contents: 
-      - section: Course Sections
+      - section: Sections
         contents: notebooks/*
 
   page-footer:
